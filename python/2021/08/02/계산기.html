@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>계산기 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="계산기" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 중" />
+<meta property="og:description" content="작성 중" />
+<link rel="canonical" href="https://gkswotn12345.github.io/calculator/python/2021/08/02/%EA%B3%84%EC%82%B0%EA%B8%B0.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/calculator/python/2021/08/02/%EA%B3%84%EC%82%B0%EA%B8%B0.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://gkswotn12345.github.io/calculator/python/2021/08/02/%EA%B3%84%EC%82%B0%EA%B8%B0.html","@type":"BlogPosting","headline":"계산기","dateModified":"2021-08-02T00:00:00-05:00","datePublished":"2021-08-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/calculator/python/2021/08/02/%EA%B3%84%EC%82%B0%EA%B8%B0.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 중","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/calculator/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/calculator/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/calculator/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/calculator/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/calculator/about/">About Me</a><a class="page-link" href="/calculator/search/">Search</a><a class="page-link" href="/calculator/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">계산기</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-02T00:00:00-05:00" itemprop="datePublished">
+        Aug 2, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      13 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/calculator/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/calculator/tree/master/_notebooks/2021-08-02-계산기.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/calculator/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/calculator/master?filepath=_notebooks%2F2021-08-02-%EA%B3%84%EC%82%B0%EA%B8%B0.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/calculator/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/calculator/blob/master/_notebooks/2021-08-02-계산기.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/calculator/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#전체-코드(미완성)">전체 코드(미완성) </a></li>
+<li class="toc-entry toc-h1"><a href="#코드-설명">코드 설명 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#계산기-기본틀">계산기 기본틀 </a></li>
+<li class="toc-entry toc-h2"><a href="#계산기-버튼">계산기 버튼 </a></li>
+<li class="toc-entry toc-h2"><a href="#계산기-함수">계산기 함수 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#reset">reset </a></li>
+<li class="toc-entry toc-h3"><a href="#number_button_click">number_button_click </a></li>
+<li class="toc-entry toc-h3"><a href="#clear_button_click">clear_button_click </a></li>
+<li class="toc-entry toc-h3"><a href="#equal_button_click">equal_button_click </a></li>
+<li class="toc-entry toc-h3"><a href="#operation_button_click">operation_button_click </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-08-02-계산기.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="전체-코드(미완성)">
+<a class="anchor" href="#%EC%A0%84%EC%B2%B4-%EC%BD%94%EB%93%9C(%EB%AF%B8%EC%99%84%EC%84%B1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>전체 코드(미완성)<a class="anchor-link" href="#%EC%A0%84%EC%B2%B4-%EC%BD%94%EB%93%9C(%EB%AF%B8%EC%99%84%EC%84%B1)"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">## 파이썬의 tkinter를 통해 계산기를 만들어보자</span>
+<span class="c1">## tkinter import 하기</span>
+<span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">import</span> <span class="nn">tkinter.font</span>
+
+<span class="c1">## 윈도우창 생성</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+
+<span class="c1">## 윈도우 제목 설정</span>
+<span class="n">window</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'계산기'</span><span class="p">)</span>
+
+<span class="c1">## 윈도우 창 크기 설정</span>
+<span class="n">window</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">'350x500+800+200'</span><span class="p">)</span>
+
+<span class="c1">## 창 크기 조절 불가능</span>
+<span class="n">window</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+
+<span class="c1">## 상단 프레임 설정</span>
+<span class="n">upper_frame</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">70</span><span class="p">)</span>
+<span class="n">upper_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
+
+
+<span class="c1">## 하단 프레임 설정</span>
+<span class="n">down_frame</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">down_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">padx</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+
+<span class="c1">## 계산기 숫자 입력창</span>
+<span class="n">entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">upper_frame</span><span class="p">,</span> <span class="n">justify</span> <span class="o">=</span> <span class="s1">'right'</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">borderwidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">entry</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+<span class="c1">## 함수 설정</span>
+<span class="c1">## 초기화</span>
+<span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## 숫자 클릭</span>
+<span class="k">def</span> <span class="nf">number_button_click</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## 등호 클릭</span>
+<span class="k">def</span> <span class="nf">equal_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">current_entry</span> <span class="o">=</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'×'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">current_entry</span> <span class="o">=</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">)</span>
+
+    <span class="n">rtn</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span>
+    <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+    <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rtn</span><span class="p">)</span>
+
+
+
+<span class="c1">## 사칙 연산 클릭</span>
+<span class="k">def</span> <span class="nf">operation_button_click</span><span class="p">(</span><span class="n">op</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span>  <span class="n">current_entry</span> <span class="o">!=</span> <span class="s1">''</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span><span class="p">:</span>
+        <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+
+
+<span class="c1">## entry clear</span>
+<span class="k">def</span> <span class="nf">clear_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+
+
+<span class="c1">## 버튼 폰트 설정</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">17</span><span class="p">)</span>
+
+<span class="c1">## 1번재 줄 버튼</span>
+<span class="n">b_letf_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'('</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="n">b_letf_paren</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_right_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">')'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="n">b_right_paren</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_C</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'C'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">clear_button_click</span><span class="p">)</span>
+<span class="n">b_C</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_div</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'÷'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">))</span>
+<span class="n">b_div</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 2번재 줄 버튼</span>
+<span class="n">b_7</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'7'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">b_7</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_8</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'8'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">b_8</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_9</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'9'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">b_9</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_mul</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'×'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'×'</span><span class="p">))</span>
+<span class="n">b_mul</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 3번재 줄 버튼</span>
+<span class="n">b_4</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'4'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">b_4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_5</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'5'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">b_5</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_6</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'6'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">b_6</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_sub</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'-'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'-'</span><span class="p">))</span>
+<span class="n">b_sub</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 4번재 줄 버튼</span>
+<span class="n">b_1</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'1'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">b_1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_2</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'2'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">b_2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_3</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'3'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">b_3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_add</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'+'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'+'</span><span class="p">))</span>
+<span class="n">b_add</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 5번재 줄 버튼</span>
+<span class="n">b_sign</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'+/-'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">b_sign</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b_0</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'0'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">b_0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b_point</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'.'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">b_point</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b_equal</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'='</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">equal_button_click</span><span class="p">)</span>
+<span class="n">b_equal</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+
+
+<span class="c1">## 종료할 때까지 윈도우창 띄우기</span>
+<span class="n">window</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아직 완성전</p>
+<p><code>-</code> 코드에 대한 설명이 있으면 좋을 것 같아서 설명을 추가하려 함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="코드-설명">
+<a class="anchor" href="#%EC%BD%94%EB%93%9C-%EC%84%A4%EB%AA%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>코드 설명<a class="anchor-link" href="#%EC%BD%94%EB%93%9C-%EC%84%A4%EB%AA%85"> </a>
+</h1>
+<p><code>-</code> 코드에 대한 설명 추가</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="계산기-기본틀">
+<a class="anchor" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B8%B0%EB%B3%B8%ED%8B%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>계산기 기본틀<a class="anchor-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B8%B0%EB%B3%B8%ED%8B%80"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 계산기 기본틀 코드</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">## 윈도우창 생성</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+
+<span class="c1">## 윈도우 제목 설정</span>
+<span class="n">window</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'계산기'</span><span class="p">)</span>
+
+<span class="c1">## 윈도우 창 크기 설정</span>
+<span class="n">window</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s1">'350x500+800+200'</span><span class="p">)</span>
+
+<span class="c1">## 창 크기 조절 불가능</span>
+<span class="n">window</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">## 단 프레임 설정</span>
+<span class="n">upper_frame</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+<span class="n">upper_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
+
+
+<span class="c1">## 하단 프레임 설정</span>
+<span class="n">down_frame</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+<span class="n">down_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">padx</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+
+<span class="c1">## 계산기 숫자 입력창</span>
+<span class="n">entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">upper_frame</span><span class="p">,</span> <span class="n">justify</span> <span class="o">=</span> <span class="s1">'right'</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">borderwidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">entry</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+<span class="c1">## 종료할 때까지 윈도우창 띄우기</span>
+<span class="n">window</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+<p><code>-</code> 1번째줄 코드는 윈도우창을 생성함</p>
+<p><code>-</code> 2번째줄 코드는 윈도우창의 제목을 설정</p>
+<p><code>-</code> 3번째줄 코드는 윈도우창의 크기와 컴퓨터 화면에 나타나는 위치를 설정</p>
+<p><code>-</code> 4번째줄 코드는 윈도우창의 크기를 조절하지 못하도록 설정</p>
+<p><code>-</code> 5번째줄 코드는 상단 프레임을 설정함(크기 자동 조절) ---&gt; 계산기의 입력창과 하단의 버튼창을 구분하기 위함임</p>
+<p><code>-</code> 6번째줄 코드는 상단 프레임의 위치를 맨위로 지정함</p>
+<p><code>-</code> 7, 8번째줄 코드는 하단 프레임 설정하고 하단 프레임의 위치를 상단프레임의 아래로 지정함(크기 자동 조절)</p>
+<p><code>-</code> 8, 9번째줄 코드는 계산기에서 사용자가 입력한 숫자를 입력받는 부분임</p>
+<p><code>-</code> 마지막 코드는 종료할 때까지 윈도우창을 띄운다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="계산기-버튼">
+<a class="anchor" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EB%B2%84%ED%8A%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>계산기 버튼<a class="anchor-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EB%B2%84%ED%8A%BC"> </a>
+</h2>
+<p><code>-</code> 계산기 버튼 코드</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">## 버튼 폰트 설정</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">17</span><span class="p">)</span>
+
+<span class="c1">## 1번재 줄 버튼</span>
+<span class="n">b_letf_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'('</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="n">b_letf_paren</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_right_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">')'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="n">b_right_paren</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_C</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'C'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">clear_button_click</span><span class="p">)</span>
+<span class="n">b_C</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_div</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'÷'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">))</span>
+<span class="n">b_div</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 2번재 줄 버튼</span>
+<span class="n">b_7</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'7'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">b_7</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_8</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'8'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">b_8</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_9</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'9'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">b_9</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_mul</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'×'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'×'</span><span class="p">))</span>
+<span class="n">b_mul</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 3번재 줄 버튼</span>
+<span class="n">b_4</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'4'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">b_4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_5</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'5'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">b_5</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_6</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'6'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">b_6</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_sub</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'-'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'-'</span><span class="p">))</span>
+<span class="n">b_sub</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 4번재 줄 버튼</span>
+<span class="n">b_1</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'1'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">b_1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_2</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'2'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">b_2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_3</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'3'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">b_3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">b_add</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'+'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">operation_button_click</span><span class="p">(</span><span class="s1">'+'</span><span class="p">))</span>
+<span class="n">b_add</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1">## 5번재 줄 버튼</span>
+<span class="n">b_sign</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'+/-'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">b_sign</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b_0</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'0'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">b_0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b_point</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'.'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">b_point</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b_equal</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'='</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">equal_button_click</span><span class="p">)</span>
+<span class="n">b_equal</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> 1번째줄 코드는 버튼에 들어갈 기호의 폰트를 설정함</p>
+<p><code>-</code> 밑에 코드들은 $4\times 5$ 사이즈로 1~5번째줄에 배치될 버튼에 대한 것임</p>
+<p><code>-</code> 버튼은 하단 프레임안에 배치되며 lambda부분은 버튼을 클릭했을때 발생하는 함수임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="계산기-함수">
+<a class="anchor" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>계산기 함수<a class="anchor-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%ED%95%A8%EC%88%98"> </a>
+</h2>
+<p><code>-</code> 계산기 함수 코드</p>
+<p><code>-</code> 사실상 제일 중요한 부분</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">## 함수 설정</span>
+<span class="c1">## 초기화</span>
+<span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## 숫자 클릭</span>
+<span class="k">def</span> <span class="nf">number_button_click</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## 등호 클릭</span>
+<span class="k">def</span> <span class="nf">equal_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">current_entry</span> <span class="o">=</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'×'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">current_entry</span> <span class="o">=</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">)</span>
+
+    <span class="n">rtn</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span>
+    <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+    <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rtn</span><span class="p">)</span>
+
+
+
+<span class="c1">## 사칙 연산 클릭</span>
+<span class="k">def</span> <span class="nf">operation_button_click</span><span class="p">(</span><span class="n">op</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span>  <span class="n">current_entry</span> <span class="o">!=</span> <span class="s1">''</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span><span class="p">:</span>
+        <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+
+
+<span class="c1">## entry clear</span>
+<span class="k">def</span> <span class="nf">clear_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="reset">
+<a class="anchor" href="#reset" aria-hidden="true"><span class="octicon octicon-link"></span></a>reset<a class="anchor-link" href="#reset"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> reset은 계산기를 초기화하는 역할임</p>
+<p><code>-</code> 등호를 클릭하여 수식이 계산되어 'a'라는 결과가 나왔다고 하자</p>
+<p><code>-</code> 여기서 예시로 '3'을 입력했다고 하면 'a3'이 결과창에 출력됨 ---&gt; 이는 잘못됨 'a3'이 아니라 '3'이 출력되야함</p>
+<p><code>-</code> reset은 위와 같은 상황을 막아주는 역할임 reset = 1일 경우 입력된 내용을 초기화하고 새로 시작함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="number_button_click">
+<a class="anchor" href="#number_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>number_button_click<a class="anchor-link" href="#number_button_click"> </a>
+</h3>
+<p><code>-</code> reset = 1일 경우 입력된 내용을 초기화함</p>
+<p><code>-</code> 그 밖에 경우 계산기에서 숫자를 클릭하면 결과창에 숫자가 입력됨</p>
+<p><code>-</code> 일단 결과창에 입력된 내용을 문자열로 받아와 current_entry에 저장함</p>
+<p><code>-</code> 그리고 클릭한 숫자를 current_entry 오른쪽에 붙인 문자열을 new_entry에 저장</p>
+<p><code>-</code> 결과창에 있는 문자열을 모두 삭제한 후 new_entry를 결과창에 출력함</p>
+<p><code>-</code> 그리고 등호를 입력한 후에 숫자를 입력하여 reset = 1일 수 도 있음</p>
+<p><code>-</code> 이제는 reset = 1이면 안됨 ---&gt; 등호를 클릭해 결과가 20이 나온 상황에서 5를 입력하면 결과창이 5로 출력됨</p>
+<p><code>-</code> ---&gt; 여기서 4를 입력하면 54가 되야하지만 reset = 1이므로 4가 됨 ---&gt; 그러므로 reset = 0으로 바꾼다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="clear_button_click">
+<a class="anchor" href="#clear_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>clear_button_click<a class="anchor-link" href="#clear_button_click"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결과창(entry)에 입력된 내용을 전부 없애어 초기화함</p>
+<p><code>-</code> 초기화 됐으므로 reset = 0</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="equal_button_click">
+<a class="anchor" href="#equal_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>equal_button_click<a class="anchor-link" href="#equal_button_click"> </a>
+</h3>
+<p><code>-</code> 등호를 입력했으므로 reset = 1로 바꿈 ---&gt; reset참고</p>
+<p><code>-</code> eval 함수를 통해 현재 결과창에 입력된 문자열을 계산한 후 결과값을 출력함</p>
+<p><code>-</code> 계산기에서 나누기와 곱하기 버튼 기호로 '÷', '×'를 사용함</p>
+<p><code>-</code> eval 함수는 사용하면 예컨데 10÷5×2와 같이 되는데 '÷', '×'대신 '/', '*'를 사용해야 연산이 됨. 그렇기에 replace 함수를 사용하여 기호를 바꿔줌</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="operation_button_click">
+<a class="anchor" href="#operation_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>operation_button_click<a class="anchor-link" href="#operation_button_click"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 사칙연산 기호를 입력함</p>
+<p><code>-</code> 만약 입력창에 아무것도 입력되지 않았거나 이미 사칙연산 기호를 입력한 상태라면 아무일도 벌어지지 않음</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/calculator"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/calculator/python/2021/08/02/%EA%B3%84%EC%82%B0%EA%B8%B0.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/calculator/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/calculator/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/calculator/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/calculator/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
