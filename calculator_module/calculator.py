@@ -65,27 +65,42 @@ def equal_button_click():
         
     if current_entry.find('×') != -1:
         current_entry = current_entry.replace('×', '*')
-    
-    rtn = eval(current_entry)
-    entry.delete(0, 'end')
-    entry.insert(0, rtn)
-    
+        
+    try:
+        rtn = eval(current_entry)
+        entry.delete(0, 'end')
+        entry.insert(0, rtn)
+        
+    except ZeroDivisionError:
+        error_message = '0으로 나눌 수 없습니다'
+        entry.delete(0, 'end')
+        entry.insert(0, error_message)
+        
+    except SyntaxError:
+        error_message = '잘못된 수식입니다'
+        entry.delete(0, 'end')
+        entry.insert(0, error_message)
+        
 
     
 ## 사칙 연산 클릭
 def operation_button_click(op):
     global reset
-    reset = 0
+    
+    if reset == 1:
+        entry.delete(0, 'end')      
     
     current_entry = entry.get()
-    last = current_entry[-1]
+        
+    if len(current_entry) > 0:
+        last = current_entry[-1]
     
-    if  current_entry != '' and last != '+' and last != '-' and last != '×' and last != '÷':
-        new_entry = current_entry + op
-        entry.delete(0, 'end')
-        entry.insert(0, new_entry)
+        if last != '+' and last != '-' and last != '×' and last != '÷':
+            new_entry = current_entry + op
+            entry.delete(0, 'end')
+            entry.insert(0, new_entry)
            
-
+    reset = 0
             
 ## entry clear
 def clear_button_click():
@@ -93,6 +108,14 @@ def clear_button_click():
     reset = 0
     
     entry.delete(0, 'end')
+
+    
+## other operation
+# def 
+    
+    
+    
+    
     
 ## 버튼 폰트 설정
 font = tk.font.Font(size = 17)
@@ -164,7 +187,7 @@ b_0.grid(row = 4, column = 1, padx = 5, pady = 2)
 b_point = tk.Button(down_frame, text = '.', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1)
 b_point.grid(row = 4, column = 2, padx = 5, pady = 2)
 
-b_equal = tk.Button(down_frame, text = '=', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1, bg = 'red', command = equal_button_click)
+b_equal = tk.Button(down_frame, text = '=', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1, bg = 'red', command = equal_button_click, activebackground = 'blue')
 b_equal.grid(row = 4, column = 3, padx = 5, pady = 2)
 
 
