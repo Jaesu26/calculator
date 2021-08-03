@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      19 min read
     
 </span></p>
 
@@ -147,6 +147,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#clear_button_click">clear_button_click </a></li>
 <li class="toc-entry toc-h3"><a href="#equal_button_click">equal_button_click </a></li>
 <li class="toc-entry toc-h3"><a href="#operation_button_click">operation_button_click </a></li>
+<li class="toc-entry toc-h3"><a href="#paren_button_click">paren_button_click </a></li>
+<li class="toc-entry toc-h3"><a href="#point_button_click">point_button_click </a></li>
 </ul>
 </li>
 </ul>
@@ -205,7 +207,6 @@ window.onload = wrap_img;
 <span class="n">entry</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 
 
-
 <span class="c1">## 함수 설정</span>
 <span class="c1">## 초기화</span>
 <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
@@ -217,7 +218,7 @@ window.onload = wrap_img;
     <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
     <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
 
@@ -230,7 +231,6 @@ window.onload = wrap_img;
 <span class="c1">## 등호 클릭</span>
 <span class="k">def</span> <span class="nf">equal_button_click</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">reset</span>
-    <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
@@ -244,35 +244,54 @@ window.onload = wrap_img;
         <span class="n">rtn</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rtn</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
         <span class="n">error_message</span> <span class="o">=</span> <span class="s1">'0으로 나눌 수 없습니다'</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">2</span>
 
     <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
         <span class="n">error_message</span> <span class="o">=</span> <span class="s1">'잘못된 수식입니다'</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">2</span>
 
 
-
-<span class="c1">## 사칙 연산 클릭</span>
+<span class="c1">## 사칙연산 클릭</span>
 <span class="k">def</span> <span class="nf">operation_button_click</span><span class="p">(</span><span class="n">op</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">reset</span>
 
-    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>      
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>  
 
-    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span> 
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+    <span class="n">test_list</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
+
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">test_idx</span> <span class="o">=</span> <span class="n">test_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">condition</span> <span class="o">=</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span>
 
-        <span class="k">if</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'.'</span><span class="p">:</span>
             <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">test_idx</span> <span class="o">==</span> <span class="s1">'.'</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">current_entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">test_idx</span> <span class="o">!=</span> <span class="s1">'.'</span><span class="p">:</span>
+            <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
 
     <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -284,15 +303,67 @@ window.onload = wrap_img;
     <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
 
 
+<span class="c1">## other operation</span>
+<span class="k">def</span> <span class="nf">paren_button_click</span><span class="p">(</span><span class="n">paren</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">paren</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">paren</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## decimal point</span>
+<span class="k">def</span> <span class="nf">point_button_click</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">point</span>
+
+    <span class="k">if</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span> 
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_entry</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">test_list</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
+            <span class="n">test_idx</span> <span class="o">=</span> <span class="n">test_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">test_idx</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## plus, minus sign  </span>
+
 <span class="c1">## 버튼 폰트 설정</span>
 <span class="n">font</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">17</span><span class="p">)</span>
 
 
 <span class="c1">## 1번재 줄 버튼</span>
-<span class="n">b_letf_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'('</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="n">b_letf_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'('</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">paren_button_click</span><span class="p">(</span><span class="s1">'('</span><span class="p">))</span>
 <span class="n">b_letf_paren</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 
-<span class="n">b_right_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">')'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="n">b_right_paren</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">')'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">paren_button_click</span><span class="p">(</span><span class="s1">')'</span><span class="p">))</span>
 <span class="n">b_right_paren</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="n">b_C</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'C'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>  <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">clear_button_click</span><span class="p">)</span>
@@ -351,7 +422,7 @@ window.onload = wrap_img;
 <span class="n">b_0</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'0'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">number_button_click</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">b_0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="n">b_point</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'.'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">b_point</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'.'</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">point_button_click</span><span class="p">(</span><span class="s1">'.'</span><span class="p">))</span>
 <span class="n">b_point</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="n">b_equal</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">down_frame</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">'='</span><span class="p">,</span> <span class="n">bd</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">padx</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">equal_button_click</span><span class="p">,</span> <span class="n">activebackground</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span>
@@ -555,18 +626,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="c1">## 함수 설정</span>
-<span class="c1">## 초기화</span>
-<span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="c1">## 숫자 클릭</span>
+<div class="highlight"><pre><span></span><span class="c1">## 숫자 클릭</span>
 <span class="k">def</span> <span class="nf">number_button_click</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">reset</span>
 
     <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
     <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
 
@@ -579,7 +646,6 @@ window.onload = wrap_img;
 <span class="c1">## 등호 클릭</span>
 <span class="k">def</span> <span class="nf">equal_button_click</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">reset</span>
-    <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
@@ -593,35 +659,54 @@ window.onload = wrap_img;
         <span class="n">rtn</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rtn</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
         <span class="n">error_message</span> <span class="o">=</span> <span class="s1">'0으로 나눌 수 없습니다'</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">2</span>
 
     <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
         <span class="n">error_message</span> <span class="o">=</span> <span class="s1">'잘못된 수식입니다'</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">2</span>
 
 
-
-<span class="c1">## 사칙 연산 클릭</span>
+<span class="c1">## 사칙연산 클릭</span>
 <span class="k">def</span> <span class="nf">operation_button_click</span><span class="p">(</span><span class="n">op</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">reset</span>
 
-    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>      
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>  
 
-    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span> 
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+    <span class="n">test_list</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
+
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">test_idx</span> <span class="o">=</span> <span class="n">test_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">condition</span> <span class="o">=</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span>
 
-        <span class="k">if</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'.'</span><span class="p">:</span>
             <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">test_idx</span> <span class="o">==</span> <span class="s1">'.'</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">current_entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">test_idx</span> <span class="o">!=</span> <span class="s1">'.'</span><span class="p">:</span>
+            <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
 
     <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -631,6 +716,59 @@ window.onload = wrap_img;
     <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+
+
+<span class="c1">## paren operation</span>
+<span class="k">def</span> <span class="nf">paren_button_click</span><span class="p">(</span><span class="n">paren</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">paren</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">paren</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## decimal point</span>
+<span class="k">def</span> <span class="nf">point_button_click</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">point</span>
+
+    <span class="k">if</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span> 
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_entry</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">test_list</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
+            <span class="n">test_idx</span> <span class="o">=</span> <span class="n">test_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">test_idx</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## plus, minus sign</span>
 </pre></div>
 
 </div>
@@ -660,6 +798,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> reset은 계산기를 초기화하는 역할임</p>
+<p><code>-</code> reset이 1 or 2일 경우에는 초기화가 필요 reset이 0일 경우 초기화 불필요</p>
 <p><code>-</code> 등호를 클릭하여 수식이 계산되어 'a'라는 결과가 나왔다고 하자</p>
 <p><code>-</code> 여기서 예시로 '3'을 입력했다고 하면 'a3'이 결과창에 출력됨 ---&gt; 이는 잘못됨 'a3'이 아니라 '3'이 출력되야함</p>
 <p><code>-</code> reset은 위와 같은 상황을 막아주는 역할임 reset = 1일 경우 입력된 내용을 초기화하고 새로 시작함</p>
@@ -686,7 +825,7 @@ window.onload = wrap_img;
     <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
     <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
 
@@ -703,7 +842,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> reset = 1일 경우 입력된 내용을 초기화함</p>
+<p><code>-</code> reset = 1 or 2일 경우 입력된 내용을 초기화함</p>
 <p><code>-</code> 그 밖에 경우 계산기에서 숫자를 클릭하면 결과창에 숫자가 입력됨</p>
 <p><code>-</code> 일단 결과창에 입력된 내용을 문자열로 받아와 current_entry에 저장함</p>
 <p><code>-</code> 그리고 클릭한 숫자를 current_entry 오른쪽에 붙인 문자열을 new_entry에 저장</p>
@@ -762,7 +901,6 @@ window.onload = wrap_img;
 <div class="highlight"><pre><span></span><span class="c1">## 등호 클릭</span>
 <span class="k">def</span> <span class="nf">equal_button_click</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">reset</span>
-    <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
@@ -776,16 +914,19 @@ window.onload = wrap_img;
         <span class="n">rtn</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rtn</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
         <span class="n">error_message</span> <span class="o">=</span> <span class="s1">'0으로 나눌 수 없습니다'</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">2</span>
 
     <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
         <span class="n">error_message</span> <span class="o">=</span> <span class="s1">'잘못된 수식입니다'</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">error_message</span><span class="p">)</span>
+        <span class="n">reset</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 
 </div>
@@ -795,6 +936,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 등호를 입력했으므로 reset = 1로 바꿈 ---&gt; reset참고</p>
+<p><code>-</code> 에러메시지가 출력되면 reset = 2로 바꿈</p>
+<p><code>-</code> 만약 5+4를 계산해서 9가 나왔다고 하자. 여기서 숫자를 클릭하면 9가 초기화되지만 사칙연산을 클릭하면 9가 초기화 되면 안됨 ---&gt; 이를 구별하기 위해 reset을 1과 2로 나눔</p>
 <p><code>-</code> eval 함수를 통해 현재 결과창에 입력된 문자열을 계산한 후 결과값을 출력함</p>
 <p><code>-</code> 계산기에서 나누기와 곱하기 버튼 기호로 '÷', '×'를 사용함</p>
 <p><code>-</code> eval 함수는 사용하면 예컨데 10÷5×2와 같이 되는데 '÷', '×'대신 '/', '*'를 사용해야 연산이 됨. 그렇기에 replace 함수를 사용하여 기호를 바꿔줌</p>
@@ -819,18 +962,36 @@ window.onload = wrap_img;
 <span class="k">def</span> <span class="nf">operation_button_click</span><span class="p">(</span><span class="n">op</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">reset</span>
 
-    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>      
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>  
 
-    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span> 
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+    <span class="n">test_list</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
+
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_entry</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">test_idx</span> <span class="o">=</span> <span class="n">test_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">condition</span> <span class="o">=</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span>
 
-        <span class="k">if</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'.'</span><span class="p">:</span>
             <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">test_idx</span> <span class="o">==</span> <span class="s1">'.'</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">current_entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">test_idx</span> <span class="o">!=</span> <span class="s1">'.'</span><span class="p">:</span>
+            <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">op</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 
 </div>
@@ -842,7 +1003,116 @@ window.onload = wrap_img;
 <p><code>-</code> 사칙연산 기호를 입력함</p>
 <p><code>-</code> 만약 입력창에 아무것도 입력되지 않았거나 이미 사칙연산 기호를 입력한 상태라면 아무일도 벌어지지 않음</p>
 <p><code>-</code> current_entry가 빈 문자열(길이가 0)일 때 last가 정의되지 않는 것을 고려하여 current_entry의 길이가 1 이상일 때만 last를 정의함</p>
+<p><code>-</code> 소수점연산을 위해 코드를 추가함</p>
+<p><code>-</code> 1. + .1은 가능하지만 . + . 과 같은 꼴은 불가능</p>
+<p><code>-</code> 이를 고려하기 위해 사칙연산기호를 '+'로 통일한 후 이를 기준으로 split함</p>
+<p><code>-</code> 우선 last == '.'인 경우 아무일도 일어나지 않음 ---&gt; 2.1 + 5. '+' ---&gt; '+' 불가능 ---&gt; 소수점으로 끝나므로 ---&gt; 하지만 가능한 연산이므로 이를 해결해줘야 함</p>
+<p><code>-</code> 이를 검증하려고 test 관련 변수를 만듦</p>
+<p><code>-</code> test_idx == '.'인 경우 소수점만 있는 상태이므로 아무일도 일어나지 않음</p>
+<p><code>-</code> test_idx != '.' 이고 last가 사칙연산기호도 아니라면 사칙연산을 결과창에 추가함</p>
 <p><code>-</code> 나중에 사칙연산이 입력된 상태에서 다른 사칙연산을 클릭하면 입력되지 않는 대신에 기존에 입력된 사칙연산을 지우고 새로 클릭한 사칙연산을 입력하도록 할 예정</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="paren_button_click">
+<a class="anchor" href="#paren_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>paren_button_click<a class="anchor-link" href="#paren_button_click"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">## paren operation</span>
+<span class="k">def</span> <span class="nf">paren_button_click</span><span class="p">(</span><span class="n">paren</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">paren</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">paren</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 괄호를 입력함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="point_button_click">
+<a class="anchor" href="#point_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>point_button_click<a class="anchor-link" href="#point_button_click"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">## decimal point</span>
+<span class="k">def</span> <span class="nf">point_button_click</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+
+    <span class="n">test_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="n">point</span>
+
+    <span class="k">if</span> <span class="n">current_entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'÷'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span> 
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'×'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+        <span class="n">test_entry</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_entry</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">test_list</span> <span class="o">=</span> <span class="n">test_entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
+            <span class="n">test_idx</span> <span class="o">=</span> <span class="n">test_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">test_idx</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 소수점을 입력함</p>
+<p><code>-</code> 소수점은 하나의 숫자에 대해 여러개 사용이 불가능 ---&gt; 5.2.4 + 44.2.1.(X)</p>
+<p><code>-</code> 이를 고려하고자 test 관련 변수를 만듦</p>
+<p><code>-</code> 구분을 위해 사칙연산을 모두 '+'로 바꾸고 이에 대해 split함</p>
+<p><code>-</code> 만약 test_idx에 소수점이 존재한다면 하나의 숫자에 대해 이미 하나의 소수점이 충족된 상태이므로 아무일도 일어나지 않음</p>
 
 </div>
 </div>
