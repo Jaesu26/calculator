@@ -31,7 +31,6 @@ entry = tk.Entry(upper_frame, justify = 'right', width = 30, borderwidth = 5)
 entry.pack()
 
 
-
 ## 함수 설정
 ## 초기화
 reset = 0
@@ -77,12 +76,12 @@ def equal_button_click():
         entry.insert(0, error_message)
         reset = 2
         
-    except SyntaxError:
+    except (SyntaxError, TypeError):
         error_message = '잘못된 수식입니다'
         entry.delete(0, 'end')
         entry.insert(0, error_message)
         reset = 2
-
+        
     
 ## 사칙연산 클릭
 def operation_button_click(op):
@@ -115,7 +114,8 @@ def operation_button_click(op):
         if condition and test_idx != '.':
             new_entry = current_entry + op
             entry.delete(0, 'end')
-            entry.insert(0, new_entry)    
+            entry.insert(0, new_entry)
+                
            
     reset = 0
             
@@ -127,7 +127,7 @@ def clear_button_click():
     entry.delete(0, 'end')
 
     
-## paren operation
+## other operation
 def paren_button_click(paren):
     global reset
     
@@ -145,15 +145,15 @@ def paren_button_click(paren):
     reset = 0
 
 ## decimal point
-def point_button_click(point):
+def point_button_click():
     global reset
     
     if reset == 1 or reset == 2:
         entry.delete(0, 'end')
-        entry.insert(0, point)
+        entry.insert(0, '.')
     
     test_entry = current_entry = entry.get()
-    new_entry = current_entry + point
+    new_entry = current_entry + '.'
         
     if current_entry.find('.') == -1:
         entry.delete(0, 'end')
@@ -165,7 +165,7 @@ def point_button_click(point):
         test_entry = test_entry.replace('-', '+')
         
         if len(test_entry) < 1:
-            entry.insert(0, point)
+            entry.insert(0, '.')
         
         else:
             test_list = test_entry.split('+')
@@ -176,13 +176,30 @@ def point_button_click(point):
                 entry.insert(0, new_entry)
                  
     reset = 0
+
+## plus, minus sign  
+def plus_minus_button_click():
+    global reset
     
+    current_entry = entry.get()
+    new_entry = current_entry + '-'
     
-## plus, minus sign
-## def sign_button_click():
+    if reset == 1 or reset == 2:
+        entry.delete(0, 'end')
+        entry.insert(0, '-')
     
-    
-    
+    elif current_entry == '':
+        entry.delete(0, 'end')
+        entry.insert(0, '-')
+        
+    elif len(current_entry) > 0:
+        last = current_entry[-1]
+        
+        if last == '+' or last == '-' or last == '×' or last == '÷' or last == '(' or last == ')':
+            entry.delete(0, 'end')
+            entry.insert(0, new_entry)
+        
+    reset = 0    
     
     
 ## 버튼 폰트 설정
@@ -246,13 +263,13 @@ b_add.grid(row = 3, column = 3, padx = 5, pady = 5)
 
 
 ## 5번재 줄 버튼
-b_sign = tk.Button(down_frame, text = '+/-', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1)
+b_sign = tk.Button(down_frame, text = '+/-', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1, command = plus_minus_button_click)
 b_sign.grid(row = 4, column = 0, padx = 0, pady = 2)
 
 b_0 = tk.Button(down_frame, text = '0', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1, command = lambda: number_button_click(0))
 b_0.grid(row = 4, column = 1, padx = 5, pady = 2)
 
-b_point = tk.Button(down_frame, text = '.', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1, command = lambda: point_button_click('.'))
+b_point = tk.Button(down_frame, text = '.', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1, command = point_button_click)
 b_point.grid(row = 4, column = 2, padx = 5, pady = 2)
 
 b_equal = tk.Button(down_frame, text = '=', bd = 2.5, padx = 15, pady = 10, font = font, width = 2, height = 1, bg = 'red', command = equal_button_click, activebackground = 'blue')
