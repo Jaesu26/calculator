@@ -1,5 +1,14 @@
 ## 파이썬의 tkinter를 통해 계산기를 만들어보자
 ## tkinter import 하기
+'''
+버전1 계산기입니다
+네이버 계산기를 참고했습니다
+4×5 크기로 구성했습니다
+
+기능: 숫자입력, 등호, 사칙연산, 소괄호, 소수점, 입력창 초기화
+기본적인 연산만 가능합니다
+부족한 기능을 추가하여 버전2 계산기를 만들 예정입니다
+'''
 import tkinter as tk
 import tkinter.font
 
@@ -127,7 +136,7 @@ def clear_button_click():
     entry.delete(0, 'end')
 
     
-## other operation
+## parentheses operation
 def paren_button_click(paren):
     global reset
     
