@@ -3,10 +3,9 @@
 '''
 버전2 계산기입니다
 버전1 계산기에 부족한 기능을 추가했습니다
-네이버 계산기를 참고했습니다
-6×5 크기로 구성했습니다
+5×5 크기로 구성했습니다
 
-새로운 기능: 제곱, 거듭제곤, 제곱근, 거듭제곱근, 상용로그, 자연로그, 팩토리얼(감마함수), Backspace, π, e
+새로운 기능: 제곱, 제곱근, 로그, Backspace, π, e
 '''
 import tkinter as tk
 import tkinter.font
@@ -72,17 +71,19 @@ def number_button_click(num):
 def equal_button_click():
     global reset
     
+    if reset == 1 or reset == 2:
+        entry.delete(0, 'end')
+        
     current_entry = entry.get()
+    op = ['÷', '×', 'π', '^']
+    ch_op = ['/', '*', 'pi', '**']
+    op_idx = 0
     
-    if current_entry.find('÷') != -1:
-        current_entry = current_entry.replace('÷', '/')
-        
-    if current_entry.find('×') != -1:
-        current_entry = current_entry.replace('×', '*')
-        
-    if current_entry.find('π') != -1:
-        current_entry = current_entry.replace('π', 'pi')
-        
+    for op_chr in op:
+        if current_entry.find(op_chr) != -1:
+            current_entry = current_entry.replace(op_chr, ch_op[op_idx])
+        op_idx += 1
+    
     try:
         rtn = eval(current_entry)
         entry.delete(0, 'end')
@@ -135,7 +136,6 @@ def operation_button_click(op):
             entry.delete(0, 'end')
             entry.insert(0, new_entry)
                 
-           
     reset = 0
             
 ## entry clear
@@ -146,7 +146,7 @@ def clear_button_click():
     entry.delete(0, 'end')
 
     
-## other operation
+## parentheses operation
 def paren_button_click(paren):
     global reset
     
@@ -258,6 +258,31 @@ def transcendental_number_button_click(tran_num):
             entry.insert(0, new_entry)
                  
     reset = 0
+
+    
+## 제곱
+def square_button_click():
+    global reset
+    
+    current_entry = entry.get()
+    new_entry = current_entry + '^2'
+    
+    if reset == 1 or reset == 2 or current_entry == '':
+        entry.delete(0, 'end')
+    
+    else:
+        last = current_entry[-1]
+        
+        if last != '+' and last != '-' and last != '×' and last != '÷' and last != '(':
+            entry.delete(0, 'end')
+            entry.insert(0, new_entry)
+                 
+    reset = 0    
+    
+## 제곱근(√)
+## def square_root_button_click():
+
+
     
 ## 버튼 폰트 설정
 
