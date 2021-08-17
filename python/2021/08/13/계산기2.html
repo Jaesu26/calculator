@@ -9,15 +9,15 @@
 <meta property="og:title" content="계산기2" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="작성 중" />
-<meta property="og:description" content="작성 중" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
 <link rel="canonical" href="https://gkswotn12345.github.io/calculator/python/2021/08/13/%EA%B3%84%EC%82%B0%EA%B8%B02.html" />
 <meta property="og:url" content="https://gkswotn12345.github.io/calculator/python/2021/08/13/%EA%B3%84%EC%82%B0%EA%B8%B02.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-08-13T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://gkswotn12345.github.io/calculator/python/2021/08/13/%EA%B3%84%EC%82%B0%EA%B8%B02.html","@type":"BlogPosting","headline":"계산기2","dateModified":"2021-08-13T00:00:00-05:00","datePublished":"2021-08-13T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/calculator/python/2021/08/13/%EA%B3%84%EC%82%B0%EA%B8%B02.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 중","@context":"https://schema.org"}</script>
+{"url":"https://gkswotn12345.github.io/calculator/python/2021/08/13/%EA%B3%84%EC%82%B0%EA%B8%B02.html","@type":"BlogPosting","headline":"계산기2","dateModified":"2021-08-13T00:00:00-05:00","datePublished":"2021-08-13T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/calculator/python/2021/08/13/%EA%B3%84%EC%82%B0%EA%B8%B02.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 완료","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/calculator/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/calculator/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/calculator/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">계산기2</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-13T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">계산기2</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-13T00:00:00-05:00" itemprop="datePublished">
         Aug 13, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -135,11 +135,13 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#계산기2-함수-전체-코드(미완성)">계산기2 함수 전체 코드(미완성) </a>
+<li class="toc-entry toc-h1"><a href="#계산기2-함수-전체-코드(완성)">계산기2 함수 전체 코드(완성) </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#backspace_button_click">backspace_button_click </a></li>
 <li class="toc-entry toc-h2"><a href="#transcendental_number_button_click">transcendental_number_button_click </a></li>
 <li class="toc-entry toc-h2"><a href="#square_button_click">square_button_click </a></li>
+<li class="toc-entry toc-h2"><a href="#square_root_button_click">square_root_button_click </a></li>
+<li class="toc-entry toc-h2"><a href="#log_e_button_click">log_e_button_click </a></li>
 </ul>
 </li>
 </ul><!--
@@ -156,6 +158,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 기존 계산기에 부족한 기능을 보완하여 버전2 계산기를 만들려고 함</p>
 <p><code>-</code> 버전1 계산기에서 업그레이드된 함수 기능에 대한 설명을 추가할 거임</p>
+<p><code>-</code> 후에 기능을 더 추가할 수 도 있음</p>
 
 </div>
 </div>
@@ -163,8 +166,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="계산기2-함수-전체-코드(미완성)">
-<a class="anchor" href="#%EA%B3%84%EC%82%B0%EA%B8%B02-%ED%95%A8%EC%88%98-%EC%A0%84%EC%B2%B4-%EC%BD%94%EB%93%9C(%EB%AF%B8%EC%99%84%EC%84%B1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>계산기2 함수 전체 코드(미완성)<a class="anchor-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B02-%ED%95%A8%EC%88%98-%EC%A0%84%EC%B2%B4-%EC%BD%94%EB%93%9C(%EB%AF%B8%EC%99%84%EC%84%B1)"> </a>
+<h1 id="계산기2-함수-전체-코드(완성)">
+<a class="anchor" href="#%EA%B3%84%EC%82%B0%EA%B8%B02-%ED%95%A8%EC%88%98-%EC%A0%84%EC%B2%B4-%EC%BD%94%EB%93%9C(%EC%99%84%EC%84%B1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>계산기2 함수 전체 코드(완성)<a class="anchor-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B02-%ED%95%A8%EC%88%98-%EC%A0%84%EC%B2%B4-%EC%BD%94%EB%93%9C(%EC%99%84%EC%84%B1)"> </a>
 </h1>
 <p><code>-</code> 기존 계산기에서 추가된 함수에 대한 설명</p>
 
@@ -189,7 +192,7 @@ window.onload = wrap_img;
     <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
 
 
-<span class="c1">## Transcendental number</span>
+<span class="c1">## Transcendental number(pi and e)</span>
 <span class="k">def</span> <span class="nf">transcendental_number_button_click</span><span class="p">(</span><span class="n">tran_num</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">reset</span>
 
@@ -206,11 +209,12 @@ window.onload = wrap_img;
     <span class="k">else</span><span class="p">:</span>
         <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'+'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'-'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'×'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'÷'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'('</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">')'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'+'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'-'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'×'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'÷'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
 
     <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
 
 <span class="c1">## 제곱</span>
 <span class="k">def</span> <span class="nf">square_button_click</span><span class="p">():</span>
@@ -219,13 +223,57 @@ window.onload = wrap_img;
     <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
     <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="s1">'^2'</span>
 
-    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">current_entry</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">current_entry</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'+'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'×'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'÷'</span> <span class="ow">and</span> <span class="n">last</span> <span class="o">!=</span> <span class="s1">'('</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>    
+
+<span class="c1">## 제곱근(√)</span>
+<span class="k">def</span> <span class="nf">square_root_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="s1">'√('</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">current_entry</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'√('</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'+'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'-'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'×'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'÷'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## 자연로그</span>
+<span class="k">def</span> <span class="nf">log_e_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="s1">'ln('</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">current_entry</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'ln('</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'+'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'-'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'×'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'÷'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
             <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
 
@@ -359,6 +407,83 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 제곱 연산을 할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="square_root_button_click">
+<a class="anchor" href="#square_root_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>square_root_button_click<a class="anchor-link" href="#square_root_button_click"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="c1">## 제곱근(√)</span>
+<span class="k">def</span> <span class="nf">square_root_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="s1">'√('</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">current_entry</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'√('</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'+'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'-'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'×'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'÷'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 제곱근 연산을 할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="log_e_button_click">
+<a class="anchor" href="#log_e_button_click" aria-hidden="true"><span class="octicon octicon-link"></span></a>log_e_button_click<a class="anchor-link" href="#log_e_button_click"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="c1">## 자연로그</span>
+
+<span class="k">def</span> <span class="nf">log_e_button_click</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">reset</span>
+
+    <span class="n">current_entry</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">new_entry</span> <span class="o">=</span> <span class="n">current_entry</span> <span class="o">+</span> <span class="s1">'ln('</span>
+
+    <span class="k">if</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">reset</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">current_entry</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'ln('</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">current_entry</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'+'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'-'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'×'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'÷'</span> <span class="ow">or</span> <span class="n">last</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">)</span>
+            <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">new_entry</span><span class="p">)</span>
+
+    <span class="n">reset</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 자연로그 연산을 할 수 있다</p>
 
 </div>
 </div>
