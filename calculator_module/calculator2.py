@@ -2,11 +2,14 @@
 ## tkinter import 하기
 '''
 버전2 계산기입니다
-버전1 계산기에 부족한 기능을 추가했습니다
 6×4 크기로 구성했습니다
+버전1 계산기에 부족한 기능을 추가하고 발견된 오류를 수정했습니다
+
+발견된 오류: 1. ')'뒤에 소수점 입력 가능, 2. ValueError, 3. OverflowError
 
 새로운 기능: 제곱, 제곱근, 자연로그, Backspace, 보류(π, e)
 '''
+
 import tkinter as tk
 import tkinter.font
 from math import pi
@@ -104,6 +107,12 @@ def equal_button_click():
         entry.insert(0, error_message)
         reset = 2
         
+    except OverflowError:
+        error_message = '입력하신 수식은 계산할 수 없습니다'
+        entry.delete(0, 'end')
+        entry.insert(0, error_message)
+        reset = 2
+        
     
 ## 사칙연산 클릭
 def operation_button_click(op):
@@ -175,8 +184,9 @@ def point_button_click():
     
     test_entry = current_entry = entry.get()
     new_entry = current_entry + '.'
+    condition = current_entry[-1] != ')' and current_entry[-1] != 'e' and current_entry[-1] != 'π' and current_entry.find('.') == -1
         
-    if current_entry.find('.') == -1:
+    if condition:
         entry.delete(0, 'end')
         entry.insert(0, new_entry)
         
@@ -192,7 +202,7 @@ def point_button_click():
             test_list = test_entry.split('+')
             test_idx = test_list[-1]
             
-            if test_idx.find('.') == -1:
+            if condition:
                 entry.delete(0, 'end')
                 entry.insert(0, new_entry)
                  
@@ -255,7 +265,7 @@ def transcendental_number_button_click(tran_num):
     else:
         last = current_entry[-1]
         
-        if last == '+' or last == '-' or last == '×' or last == '÷' or last == '(':
+        if last == '+' or last == '-' or last == '×' or last == '÷' or last == '(' and last != '.':
             entry.delete(0, 'end')
             entry.insert(0, new_entry)
                  
@@ -269,10 +279,10 @@ def square_button_click():
     current_entry = entry.get()
     new_entry = current_entry + '^2'
     
-    if reset == 1 or current_entry == '':
+    if reset == 2 or current_entry == '':
         entry.delete(0, 'end')
         
-    if reset == 2:
+    elif reset == 1:
         entry.delete(0, 'end')
         entry.insert(0, new_entry)
         
